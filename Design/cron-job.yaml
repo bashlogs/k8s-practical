@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: job1
+spec:
+  schedule: "*/3 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name:  job1
+            image: busybox
+            args:
+            - /bin/sh
+            - -c
+            - date; sleep 30
+          restartPolicy: OnFailure
+
