@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: a1
+spec:
+  completions: 5
+  parallelism: 2
+  activeDeadlineSeconds: 15
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - command:
+        - /bin/sleep
+        - "3"
+        image: busybox
+        name: a1
+        resources: {}
+      restartPolicy: Never
+status: {}

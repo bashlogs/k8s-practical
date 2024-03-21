@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  car.make: Ford
+  car.model: mustang
+  car.trim: shelby
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: fast-car

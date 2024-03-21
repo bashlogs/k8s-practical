@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2024-03-20T12:29:50Z"
+  labels:
+    app: secondapp
+  name: secondapp
+  namespace: default
+  resourceVersion: "15848"
+  uid: 5fbac5f9-bb54-4710-893b-e21b714d3a21
+spec:
+  clusterIP: 10.43.35.119
+  clusterIPs:
+  - 10.43.35.119
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: "80"
+    nodePort: 30475
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: secondapp
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
