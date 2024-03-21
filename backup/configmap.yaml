@@ -1,0 +1,42 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  data:
+    ca.crt: |
+      -----BEGIN CERTIFICATE-----
+      MIIBdjCCAR2gAwIBAgIBADAKBggqhkjOPQQDAjAjMSEwHwYDVQQDDBhrM3Mtc2Vy
+      dmVyLWNhQDE3MTA3ODU3NjAwHhcNMjQwMzE4MTgxNjAwWhcNMzQwMzE2MTgxNjAw
+      WjAjMSEwHwYDVQQDDBhrM3Mtc2VydmVyLWNhQDE3MTA3ODU3NjAwWTATBgcqhkjO
+      PQIBBggqhkjOPQMBBwNCAAR2c1aK3V428bGQ7kYYAFwS/2I2acOVOoZdGR+zCkuC
+      5Y04i0M83zpKBO7fHAuz98G9ikoURnk6naO61zNf73Bho0IwQDAOBgNVHQ8BAf8E
+      BAMCAqQwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUP+NZBV5jVXDdA+zLRcOY
+      VYI8BnMwCgYIKoZIzj0EAwIDRwAwRAIgU2OoBzcU2f1Kp4RTxlFV04Mgp3t2WPya
+      8VbVmxiM0qQCID6xwpS1uO5/g/2uiCc0DJK+9LZm0Pwv+lzv3QOa+wPl
+      -----END CERTIFICATE-----
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubernetes.io/description: Contains a CA bundle that can be used to verify the
+        kube-apiserver when using internal endpoints such as the internal service
+        IP or kubernetes.default.svc. No other usage is guaranteed across distributions
+        of Kubernetes clusters.
+    creationTimestamp: "2024-03-18T18:37:01Z"
+    name: kube-root-ca.crt
+    namespace: default
+    resourceVersion: "401"
+    uid: eee5a0ca-3ebd-4b2c-97cf-daa30184fdeb
+- apiVersion: v1
+  data:
+    car.make: Ford
+    car.model: mustang
+    car.trim: shelby
+  kind: ConfigMap
+  metadata:
+    creationTimestamp: "2024-03-19T18:27:37Z"
+    name: fast-car
+    namespace: default
+    resourceVersion: "12535"
+    uid: b80f74aa-a6b9-441e-b5b4-7f453fd555e2
+kind: List
+metadata:
+  resourceVersion: ""

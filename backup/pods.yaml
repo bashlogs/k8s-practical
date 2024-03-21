@@ -1,0 +1,1193 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2024-03-19T12:38:23Z"
+    labels:
+      run: idk
+    name: idk
+    namespace: default
+    resourceVersion: "21312"
+    uid: 7d3b9540-d0c5-4c24-8aa3-c1fe2548554a
+  spec:
+    containers:
+    - image: bashlogs/simpleapp:v1
+      imagePullPolicy: IfNotPresent
+      name: idk
+      ports:
+      - containerPort: 5000
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-l864f
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: arch
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-l864f
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T12:38:23Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:31Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:31Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T12:38:23Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://bd9be7c6fef006f22b035b0ac9f5e981ece85eb9128d03bc04827ba06d715e3e
+      image: docker.io/bashlogs/simpleapp:v1
+      imageID: docker.io/bashlogs/simpleapp@sha256:fe2ac79dffda413df47085e622fc3e124a0f820d224444a691296fa8a1dd302b
+      lastState:
+        terminated:
+          containerID: containerd://28675bbb3d91c3cf645fae7564811c97a4c4ab6bb697278900fbd886fa41951f
+          exitCode: 255
+          finishedAt: "2024-03-21T11:31:22Z"
+          reason: Unknown
+          startedAt: "2024-03-20T17:54:21Z"
+      name: idk
+      ready: true
+      restartCount: 5
+      started: true
+      state:
+        running:
+          startedAt: "2024-03-21T11:31:30Z"
+    hostIP: 192.168.0.105
+    phase: Running
+    podIP: 10.42.0.4
+    podIPs:
+    - ip: 10.42.0.4
+    qosClass: BestEffort
+    startTime: "2024-03-19T12:38:23Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2024-03-19T08:20:28Z"
+    generateName: dep-6fb8b974f4-
+    labels:
+      app: dep
+      pod-template-hash: 6fb8b974f4
+    name: dep-6fb8b974f4-4d25m
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: dep-6fb8b974f4
+      uid: 0c127d26-d762-4127-9a24-bc4c931814d6
+    resourceVersion: "21318"
+    uid: 418b8066-cf1c-4f96-98a9-09b4aa635f46
+  spec:
+    containers:
+    - image: nginx
+      imagePullPolicy: Always
+      name: nginx
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-z4wx4
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: arch
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-z4wx4
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T08:20:28Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:40Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:40Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T08:20:28Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://852c3fc8dc5b853675abf79ede4c9b4a44ce3de0e05f46441577531560913c64
+      image: docker.io/library/nginx:latest
+      imageID: docker.io/library/nginx@sha256:6db391d1c0cfb30588ba0bf72ea999404f2764febf0f1f196acd5867ac7efa7e
+      lastState:
+        terminated:
+          containerID: containerd://0328cea371b2521a4200b6e632105e18c3e9ebbfcd87bb35ebd984c9908bb55d
+          exitCode: 255
+          finishedAt: "2024-03-21T11:31:22Z"
+          reason: Unknown
+          startedAt: "2024-03-20T17:54:30Z"
+      name: nginx
+      ready: true
+      restartCount: 5
+      started: true
+      state:
+        running:
+          startedAt: "2024-03-21T11:31:39Z"
+    hostIP: 192.168.0.105
+    phase: Running
+    podIP: 10.42.0.13
+    podIPs:
+    - ip: 10.42.0.13
+    qosClass: BestEffort
+    startTime: "2024-03-19T08:20:28Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2024-03-19T07:07:06Z"
+    labels:
+      type: webserver
+    name: basic2
+    namespace: default
+    resourceVersion: "21322"
+    uid: 42c3f437-838c-41cf-a31c-d3fcb0b2b0d6
+  spec:
+    containers:
+    - image: nginx:1.11-alpine
+      imagePullPolicy: Always
+      name: basic2
+      ports:
+      - containerPort: 80
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-mxnxm
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: arch
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-mxnxm
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T07:07:06Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:38Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:38Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T07:07:06Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://2af1e8486d9b2244fc8c4cd664d1b10bcbe7509654d06624647da45e91f65480
+      image: docker.io/library/nginx:1.11-alpine
+      imageID: docker.io/library/nginx@sha256:5aadb68304a38a8e2719605e4e180413f390cd6647602bee9bdedd59753c3590
+      lastState:
+        terminated:
+          containerID: containerd://b815d6aea65a84b25f1e266bea12f4600cb1cd6b66806619defa2b3a2869e6ee
+          exitCode: 255
+          finishedAt: "2024-03-21T11:31:22Z"
+          reason: Unknown
+          startedAt: "2024-03-20T17:54:30Z"
+      name: basic2
+      ready: true
+      restartCount: 6
+      started: true
+      state:
+        running:
+          startedAt: "2024-03-21T11:31:37Z"
+    hostIP: 192.168.0.105
+    phase: Running
+    podIP: 10.42.0.8
+    podIPs:
+    - ip: 10.42.0.8
+    qosClass: BestEffort
+    startTime: "2024-03-19T07:07:06Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2024-03-19T18:16:51Z"
+    labels:
+      run: init
+    name: init
+    namespace: default
+    resourceVersion: "21325"
+    uid: f25f1b5f-7da5-4f9c-bb73-51f07490a2e8
+  spec:
+    containers:
+    - image: nginx
+      imagePullPolicy: Always
+      name: init
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-xzffp
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    initContainers:
+    - command:
+      - sh
+      - -c
+      - echo Initializing... & sleep 10
+      image: busybox
+      imagePullPolicy: Always
+      name: initcontainer
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-xzffp
+        readOnly: true
+    nodeName: arch
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-xzffp
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T18:17:12Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T06:01:45Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T06:01:45Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T18:16:51Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://2052db4f680d0db34d7f1ae1ae475ec7b4704993e087632e8df775b0ce7541f4
+      image: docker.io/library/nginx:latest
+      imageID: docker.io/library/nginx@sha256:6db391d1c0cfb30588ba0bf72ea999404f2764febf0f1f196acd5867ac7efa7e
+      lastState:
+        terminated:
+          containerID: containerd://0ffaba17e3ae2d9785b39c3de7b816f9924caff984fd5cd517fac79924dbf26e
+          exitCode: 255
+          finishedAt: "2024-03-21T11:31:22Z"
+          reason: Unknown
+          startedAt: "2024-03-20T17:54:32Z"
+      name: init
+      ready: true
+      restartCount: 4
+      started: true
+      state:
+        running:
+          startedAt: "2024-03-21T06:01:45Z"
+    hostIP: 192.168.0.105
+    initContainerStatuses:
+    - containerID: containerd://760c16f59aba922dff89b194d5175fc6845a93530c977902f242589c22ff29b1
+      image: docker.io/library/busybox:latest
+      imageID: docker.io/library/busybox@sha256:650fd573e056b679a5110a70aabeb01e26b76e545ec4b9c70a9523f2dfaf18c6
+      lastState: {}
+      name: initcontainer
+      ready: true
+      restartCount: 3
+      started: false
+      state:
+        terminated:
+          containerID: containerd://760c16f59aba922dff89b194d5175fc6845a93530c977902f242589c22ff29b1
+          exitCode: 0
+          finishedAt: "2024-03-21T11:31:38Z"
+          reason: Completed
+          startedAt: "2024-03-21T11:31:38Z"
+    phase: Running
+    podIP: 10.42.0.17
+    podIPs:
+    - ip: 10.42.0.17
+    qosClass: BestEffort
+    startTime: "2024-03-19T18:16:51Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2024-03-20T14:23:18Z"
+    generateName: newserver-749b45f754-
+    labels:
+      app: newserver
+      pod-template-hash: 749b45f754
+    name: newserver-749b45f754-dggb6
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: newserver-749b45f754
+      uid: 941d47e3-fc74-4b3e-929c-14277844573c
+    resourceVersion: "21326"
+    uid: deaf064a-f84b-4916-a078-6c7cb38a2092
+  spec:
+    containers:
+    - image: httpd
+      imagePullPolicy: Always
+      name: httpd
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-4l8lt
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: arch
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-4l8lt
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-20T14:23:18Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:39Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:39Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-20T14:23:18Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://1da81d8184c82b3c5c444b32ca8a27ba1f7e5caa7964ff1a015c945784c8076a
+      image: docker.io/library/httpd:latest
+      imageID: docker.io/library/httpd@sha256:374766f5bc5977c9b72fdb8ae3ed05b7fc89060e7edc88fcbf142d6988e58eeb
+      lastState:
+        terminated:
+          containerID: containerd://88ee3def709ba8c44a2b3c18986c2926ea08a47e91822d2200c899c72d9a7f01
+          exitCode: 255
+          finishedAt: "2024-03-21T11:31:22Z"
+          reason: Unknown
+          startedAt: "2024-03-20T17:54:31Z"
+      name: httpd
+      ready: true
+      restartCount: 2
+      started: true
+      state:
+        running:
+          startedAt: "2024-03-21T11:31:38Z"
+    hostIP: 192.168.0.105
+    phase: Running
+    podIP: 10.42.0.3
+    podIPs:
+    - ip: 10.42.0.3
+    qosClass: BestEffort
+    startTime: "2024-03-20T14:23:18Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2024-03-19T10:22:03Z"
+    generateName: registry-5cf984c847-
+    labels:
+      io.kompose.service: registry
+      pod-template-hash: 5cf984c847
+    name: registry-5cf984c847-t5csm
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: registry-5cf984c847
+      uid: a541b55e-d80f-4171-8135-3b4987a9bbe2
+    resourceVersion: "21333"
+    uid: 5d37a992-72c3-454a-af00-b5ca07bb3e79
+  spec:
+    containers:
+    - env:
+      - name: REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY
+        value: /data
+      image: registry:2
+      imagePullPolicy: IfNotPresent
+      name: registry
+      ports:
+      - containerPort: 5000
+        hostIP: 127.0.0.1
+        hostPort: 8000
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /data
+        name: registry-claim0
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-l7qcz
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: arch
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: registry-claim0
+      persistentVolumeClaim:
+        claimName: registry-claim0
+    - name: kube-api-access-l7qcz
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T10:22:16Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:30Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:30Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T10:22:16Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://231ba2c453a142d4f24a61f1f3d366becd30639c609a25b74e1a60716b31bfc7
+      image: docker.io/library/registry:2
+      imageID: docker.io/library/registry@sha256:fb9c9aef62af3955f6014613456551c92e88a67dcf1fc51f5f91bcbd1832813f
+      lastState:
+        terminated:
+          containerID: containerd://3439148db19f71c94c84b5b1ecc2a7898ea05434fc71675598b168488e38ede5
+          exitCode: 255
+          finishedAt: "2024-03-21T11:31:22Z"
+          reason: Unknown
+          startedAt: "2024-03-20T17:54:20Z"
+      name: registry
+      ready: true
+      restartCount: 5
+      started: true
+      state:
+        running:
+          startedAt: "2024-03-21T11:31:29Z"
+    hostIP: 192.168.0.105
+    phase: Running
+    podIP: 10.42.0.14
+    podIPs:
+    - ip: 10.42.0.14
+    qosClass: BestEffort
+    startTime: "2024-03-19T10:22:16Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2024-03-19T12:31:10Z"
+    generateName: try1-9dff94978-
+    labels:
+      app: try1
+      pod-template-hash: 9dff94978
+    name: try1-9dff94978-l8dgp
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: try1-9dff94978
+      uid: 0e5d52b2-72f8-4fa5-9a30-be6977950431
+    resourceVersion: "21338"
+    uid: 68940b57-0333-435e-90a1-0111fb87a8c5
+  spec:
+    containers:
+    - image: bashlogs/simpleapp:v1
+      imagePullPolicy: IfNotPresent
+      name: simpleapp
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-bnwtd
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: arch
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-bnwtd
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T12:31:10Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:31Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:31Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T12:31:10Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://ff0169a8b915a6c43843c05463735482b2d29261826e709113dd6390cea34c3d
+      image: docker.io/bashlogs/simpleapp:v1
+      imageID: docker.io/bashlogs/simpleapp@sha256:fe2ac79dffda413df47085e622fc3e124a0f820d224444a691296fa8a1dd302b
+      lastState:
+        terminated:
+          containerID: containerd://dfe388ef218b0634ebff6ba12a6b953fcbed791781174958e435abbbdba99b8f
+          exitCode: 255
+          finishedAt: "2024-03-21T11:31:22Z"
+          reason: Unknown
+          startedAt: "2024-03-20T17:54:21Z"
+      name: simpleapp
+      ready: true
+      restartCount: 5
+      started: true
+      state:
+        running:
+          startedAt: "2024-03-21T11:31:30Z"
+    hostIP: 192.168.0.105
+    phase: Running
+    podIP: 10.42.0.7
+    podIPs:
+    - ip: 10.42.0.7
+    qosClass: BestEffort
+    startTime: "2024-03-19T12:31:10Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2024-03-19T10:22:03Z"
+    generateName: nginx-6b47bcc6c6-
+    labels:
+      io.kompose.service: nginx
+      pod-template-hash: 6b47bcc6c6
+    name: nginx-6b47bcc6c6-phr4g
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: nginx-6b47bcc6c6
+      uid: 34e44a5f-b5de-46a2-809a-ee9dad218d9a
+    resourceVersion: "21342"
+    uid: 93b2692b-fff5-4cb4-ad62-7969420b7da6
+  spec:
+    containers:
+    - image: nginx:1.12
+      imagePullPolicy: IfNotPresent
+      name: nginx
+      ports:
+      - containerPort: 443
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/nginx/conf.d
+        name: nginx-claim0
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-vbvdf
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: arch
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: nginx-claim0
+      persistentVolumeClaim:
+        claimName: nginx-claim0
+    - name: kube-api-access-vbvdf
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T10:22:16Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:29Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:29Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T10:22:16Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://f844131423df704260e56298891f4a0339e2fd700ed8dc2999078e6356b68ada
+      image: docker.io/library/nginx:1.12
+      imageID: docker.io/library/nginx@sha256:72daaf46f11cc753c4eab981cbf869919bd1fee3d2170a2adeac12400f494728
+      lastState:
+        terminated:
+          containerID: containerd://a00dafcd1d17f6e514d3db0cc3ceef3cd893044e6a02882dd0ed09723b78f679
+          exitCode: 255
+          finishedAt: "2024-03-21T11:31:22Z"
+          reason: Unknown
+          startedAt: "2024-03-20T17:54:21Z"
+      name: nginx
+      ready: true
+      restartCount: 5
+      started: true
+      state:
+        running:
+          startedAt: "2024-03-21T11:31:29Z"
+    hostIP: 192.168.0.105
+    phase: Running
+    podIP: 10.42.0.2
+    podIPs:
+    - ip: 10.42.0.2
+    qosClass: BestEffort
+    startTime: "2024-03-19T10:22:16Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2024-03-19T17:57:52Z"
+    generateName: design2-7b8c799657-
+    labels:
+      app: orange
+      pod-template-hash: 7b8c799657
+    name: design2-7b8c799657-rfqqk
+    namespace: default
+    resourceVersion: "21349"
+    uid: c216218f-9d20-4aa7-b0ee-6d6d3014227e
+  spec:
+    containers:
+    - image: nginx
+      imagePullPolicy: Always
+      name: nginx
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-cdmbc
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: arch
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-cdmbc
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T17:57:52Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:39Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:39Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-19T17:57:52Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://50c12a6cf5ebd4d15b9d30beb434bd75304ad15db8fcf9a95cd9b80b44454eeb
+      image: docker.io/library/nginx:latest
+      imageID: docker.io/library/nginx@sha256:6db391d1c0cfb30588ba0bf72ea999404f2764febf0f1f196acd5867ac7efa7e
+      lastState:
+        terminated:
+          containerID: containerd://c9e0c1ef3ac34d3a772f65b399ed983eddba5c4a7af2b32c343b5e3299ad097e
+          exitCode: 255
+          finishedAt: "2024-03-21T11:31:22Z"
+          reason: Unknown
+          startedAt: "2024-03-20T17:54:31Z"
+      name: nginx
+      ready: true
+      restartCount: 4
+      started: true
+      state:
+        running:
+          startedAt: "2024-03-21T11:31:38Z"
+    hostIP: 192.168.0.105
+    phase: Running
+    podIP: 10.42.0.9
+    podIPs:
+    - ip: 10.42.0.9
+    qosClass: BestEffort
+    startTime: "2024-03-19T17:57:52Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2024-03-20T12:26:16Z"
+    labels:
+      run: secondapp
+    name: secondapp
+    namespace: default
+    resourceVersion: "21351"
+    uid: 1f51d6f6-14fd-4ba3-a6fc-093663e3e5a8
+  spec:
+    containers:
+    - image: nginx
+      imagePullPolicy: Always
+      name: webserver
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-smzt8
+        readOnly: true
+    - command:
+      - sleep
+      - "3600"
+      image: busybox
+      imagePullPolicy: Always
+      name: secondapp
+      resources: {}
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          add:
+          - NET_ADMIN
+          - SYS_TIME
+        runAsUser: 2000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /mysqlpassword
+        name: mysql
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-smzt8
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: arch
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: secret-access-sa
+    serviceAccountName: secret-access-sa
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: mysql
+      secret:
+        defaultMode: 420
+        secretName: lfsecret
+    - name: kube-api-access-smzt8
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-20T12:26:16Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:42Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-21T11:31:42Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-03-20T12:26:16Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://f9bc6094e513e2a8497521660181f575295f12b742a48bb7e472d925b12bf4d1
+      image: docker.io/library/busybox:latest
+      imageID: docker.io/library/busybox@sha256:650fd573e056b679a5110a70aabeb01e26b76e545ec4b9c70a9523f2dfaf18c6
+      lastState:
+        terminated:
+          containerID: containerd://200bdae03440b4ddbda59b5576b8e974dea36c0e8412fdc4e8e888457d011bdf
+          exitCode: 255
+          finishedAt: "2024-03-21T11:31:22Z"
+          reason: Unknown
+          startedAt: "2024-03-20T18:54:36Z"
+      name: secondapp
+      ready: true
+      restartCount: 5
+      started: true
+      state:
+        running:
+          startedAt: "2024-03-21T11:31:41Z"
+    - containerID: containerd://389b5f095df1253ef61099e18af0494423fe382b8c740df1cee77d9860ce8f7c
+      image: docker.io/library/nginx:latest
+      imageID: docker.io/library/nginx@sha256:6db391d1c0cfb30588ba0bf72ea999404f2764febf0f1f196acd5867ac7efa7e
+      lastState:
+        terminated:
+          containerID: containerd://44e7d4c26563004ab322c6675aaa211808fb61f5a180fd5ee3c73c00b2903470
+          exitCode: 255
+          finishedAt: "2024-03-21T11:31:22Z"
+          reason: Unknown
+          startedAt: "2024-03-20T17:54:30Z"
+      name: webserver
+      ready: true
+      restartCount: 2
+      started: true
+      state:
+        running:
+          startedAt: "2024-03-21T11:31:39Z"
+    hostIP: 192.168.0.105
+    phase: Running
+    podIP: 10.42.0.5
+    podIPs:
+    - ip: 10.42.0.5
+    qosClass: BestEffort
+    startTime: "2024-03-20T12:26:16Z"
+kind: List
+metadata:
+  resourceVersion: ""

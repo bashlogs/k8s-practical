@@ -1,0 +1,158 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2024-03-18T18:36:44Z"
+    labels:
+      component: apiserver
+      provider: kubernetes
+    name: kubernetes
+    namespace: default
+    resourceVersion: "69"
+    uid: 440158f1-2eb1-4f99-b8a6-bb8af3fed8db
+  spec:
+    clusterIP: 10.43.0.1
+    clusterIPs:
+    - 10.43.0.1
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 6443
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2024-03-19T07:14:30Z"
+    labels:
+      type: webserver
+    name: webserver
+    namespace: default
+    resourceVersion: "3228"
+    uid: 1f69175d-7ee3-4f06-9ec9-75e1858ce8f6
+  spec:
+    clusterIP: 10.43.12.196
+    clusterIPs:
+    - 10.43.12.196
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 31891
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      type: webserver
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -f docker-compose.yaml -o localregistry.yaml
+      kompose.version: 1.1.0 (36652f6)
+    creationTimestamp: "2024-03-19T10:22:03Z"
+    labels:
+      io.kompose.service: nginx
+    name: nginx
+    namespace: default
+    resourceVersion: "6142"
+    uid: 56982229-1d26-4c83-a1d8-054588552b8a
+  spec:
+    clusterIP: 10.43.156.189
+    clusterIPs:
+    - 10.43.156.189
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: "443"
+      port: 443
+      protocol: TCP
+      targetPort: 443
+    selector:
+      io.kompose.service: nginx
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -f docker-compose.yaml -o localregistry.yaml
+      kompose.version: 1.1.0 (36652f6)
+    creationTimestamp: "2024-03-19T10:24:08Z"
+    labels:
+      io.kompose.service: registry
+    name: registry
+    namespace: default
+    resourceVersion: "6277"
+    uid: 9803f8e0-96e3-46a5-a20b-ab30d40df986
+  spec:
+    clusterIP: 10.43.34.59
+    clusterIPs:
+    - 10.43.34.59
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: "5000"
+      port: 5000
+      protocol: TCP
+      targetPort: 5000
+    selector:
+      io.kompose.service: registry
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2024-03-20T14:38:26Z"
+    finalizers:
+    - service.kubernetes.io/load-balancer-cleanup
+    name: my-service
+    namespace: default
+    resourceVersion: "18623"
+    uid: 3c541952-bb35-44ff-83ca-36b61ac91a55
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.43.241.187
+    clusterIPs:
+    - 10.43.241.187
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 32000
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      run: secondapp
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
